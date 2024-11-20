@@ -1,9 +1,9 @@
-from datetime import date, datetime, timedelta
-from model.historical_response import HistoricalResponse
-from model.historical_request import HistoricalWeatherParam
-from model.forecast_response import ForecastResponse
-from model.forecast_request import CurrentEnum, ForecastWeatherParam
-from weather_api import WeatherApi
+from datetime import date, datetime
+from weatherapp.model.historical_response import HistoricalResponse
+from weatherapp.model.historical_request import HistoricalWeatherParam
+from weatherapp.model.forecast_response import ForecastResponse
+from weatherapp.model.forecast_request import CurrentEnum, ForecastWeatherParam
+from weatherapp.weather_api import WeatherApi
 import time
 
 

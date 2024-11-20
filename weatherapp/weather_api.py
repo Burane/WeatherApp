@@ -1,9 +1,8 @@
 import requests
-from datetime import date, timedelta
-from model.historical_response import HistoricalResponse
-from model.historical_request import HistoricalWeatherParam
-from model.forecast_request import CurrentEnum, ForecastWeatherParam
-from model.forecast_response import ForecastResponse
+from weatherapp.model.historical_response import HistoricalResponse
+from weatherapp.model.historical_request import HistoricalWeatherParam
+from weatherapp.model.forecast_request import ForecastWeatherParam
+from weatherapp.model.forecast_response import ForecastResponse
 
 
 class WeatherApi:
@@ -38,21 +37,3 @@ class WeatherApi:
 
         res = requests.get(f"{self.ARCHIVE_API_URL}{self.HISTORICAL}", params=query_params).json()
         return HistoricalResponse.from_dict(res)
-
-
-# caen = (49.183, -0.38)
-# w = WeatherApi()
-# today = date.today() - timedelta(weeks=1)
-# yesterday = today - timedelta(days=1, weeks=1)
-# param = HistoricalWeatherParam(
-#     lattitude=caen[0],
-#     longitude=caen[1],
-#     start_date=yesterday,
-#     end_date=yesterday,
-#     hourly=[
-#         CurrentEnum.RELATIVE_HUMIDITY_2m,
-#         CurrentEnum.TEMP_2M,
-#         CurrentEnum.WIND_SPEED_2M,
-#     ],
-# )
-# w.get_historical(params=param)
